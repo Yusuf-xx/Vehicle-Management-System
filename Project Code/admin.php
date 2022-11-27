@@ -1,0 +1,363 @@
+<?php
+ 
+    session_start();
+    $connection=mysqli_connect("localhost","root","","projectdb"); 
+    
+    if(isset($_POST['submit'])){
+        $username=mysqli_real_escape_string($connection,strtolower($_POST['usrname']));
+        
+        $password=mysqli_real_escape_string($connection,$_POST['pass']); 
+        
+        $login_query="SELECT * FROM `admin` WHERE username='$username' and password='$password'";
+        
+        $login_res=mysqli_query($connection,$login_query);
+        if(mysqli_num_rows($login_res)>0){ 
+            $_SESSION['username']=$username;
+            header('Location:admin_login.php');
+        } 
+
+else {
+	
+ echo '<script> alert("Wrong Username or password")</script>';
+ echo '<script> window.locaion.href = "admin.html" </script>';
+}
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Car Workshop | Admin</title>
+		
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="style.css">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+	</head>
+
+<style>
+	
+	body {
+    background: #222D32;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-box {
+    margin-top: 75px;
+    height: auto;
+    background: #1A2226;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.login-key {
+    height: 100px;
+    font-size: 80px;
+    line-height: 100px;
+    background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-title {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ECF0F5;
+}
+
+.login-form {
+    margin-top: 25px;
+    text-align: left;
+}
+
+input[type=text] {
+    background-color: #1A2226;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    color: #ECF0F5;
+}
+
+input[type=password] {
+    background-color: #1A2226;
+    border: none;
+    border-bottom: 2px solid #0DB8DE;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: #ECF0F5;
+}
+
+.form-group {
+    margin-bottom: 40px;
+    outline: 0px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 2px solid #0DB8DE;
+    outline: 0;
+    background-color: #1A2226;
+    color: #ECF0F5;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.form-control-label {
+    font-size: 10px;
+    color: #6C6C6C;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+    border-color: #0DB8DE;
+    color: #0DB8DE;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.btn-outline-primary:hover {
+    background-color: #0DB8DE;
+    right: 0px;
+}
+
+.login-btm {
+    float: left;
+}
+
+.login-button {
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.login-text {
+    text-align: left;
+    padding-left: 0px;
+    color: #A2A4A4;
+}
+
+.loginbttm {
+    padding: 0px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+
+	<body>
+		<script type="text/javascript">
+		    function validate() {
+		    	
+		    	var username = document.adminform.usrname.value; 
+		    	var upass = document.adminform.pass.value; 
+		    	
+		    	if (username == "" && upass == "")
+		    	{
+		    		document.getElementById("err1").innerText="Name cannot be left blank";
+		    		document.getElementById("err2").innerText="Password cannot be left blank";
+		    		return false;
+		    	}
+		    	else if (username == "")
+		    	{
+		    		document.getElementById("err1").innerText="Name cannot be left blank";
+		    		return false;
+		    	}
+		    	else if (upass == "")
+		    	{
+		    		document.getElementById("err2").innerText="Please enter your password";
+		    		return false;
+		    	}
+		    	else return true; 
+		    }
+			
+		</script>
+		
+		<div id="site-content">
+			
+			<header class="site-header">
+				<div class="container">
+					<a id="branding" href="index.html">
+						<img src="images/logo.png" alt="Company Logo" class="logo">
+						<h1 class="site-title">Quddus' <span>Technicians</span></h1>
+					</a>
+
+					<nav class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="services.html">Services</a></li>
+							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><div class="dropdown">
+    <button class="dropbtn">Login/Signup 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Admin Login</a>
+      <a href="signup.html">Client Signup</a>
+      <a href="ClientLogin.html">Client Login</a>
+      <a href="MechanicLogin.html">Mechanic Login</a>
+    </div>
+  </div> 
+						</ul>
+					</nav>
+					<nav class="mobile-navigation"></nav>
+				</div>
+			</header> <!-- .site-header -->
+
+			<main class="main-content">
+				
+				  
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 login-title">
+                    ADMIN PANEL
+                </div>
+				
+
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form name="adminform" action="" method = "post" onsubmit="return validate()">
+                            <div class="form-group">
+                                <label class="form-control-label">USERNAME</label>
+                                <span id="err1" style="color: red"></span>
+                                <input type="text"  name="usrname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <span id="err2" style="color: red"></span>
+                                <input type="password" name="pass" class="form-control" i>
+                            </div>
+
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                    <!-- Error Message -->
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <button type="submit" name="submit" value = "submit" class="btn btn-outline-primary">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+        </div>
+        <br>
+        <center>
+        <div class="copy">
+						<p>Copyright 2021 UTM. Designed by Group 1. All rights reserved.</p>
+					</div>
+        </center>
+
+
+
+		
+	</body>
+
+</html>

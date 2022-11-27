@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Car Workshop</title>
+		
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="style.css">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+	
+	<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+</head>
+
+	<body class="header-collapse">
+		
+		<div id="site-content">
+			
+			<header class="site-header">
+				<div class="container">
+					<a id="branding" href="index.html">
+						<img src="images/logo.png" alt="Company Logo" class="logo">
+						<h1 class="site-title">Quddus' <span>Technicians</span></h1>
+					</a>
+
+					<nav class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="services.html">Services</a></li>
+							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><div class="dropdown">
+    <button class="dropbtn">Login/Signup 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="admin.php">Admin Login</a>
+      <a href="signup.php">Client Signup</a>
+      <a href="client_login.php">Client Login</a>
+      <a href="MechanicLogin.html">Mechanic Login</a>
+    </div>
+  </div> 
+								
+                        </li>
+							
+						</ul>
+					</nav>
+					<nav class="mobile-navigation"></nav>
+				</div>
+			</header> <!-- .site-header -->
+
+			<main class="main-content">
+				<div class="hero hero-slider">
+					<ul class="slides">
+						<li data-bg-image="dummy/slide-1.jpg">
+							<div class="container">
+								<h2 class="slide-title">We got the best mechanic at your fingertips</h2>
+								<br> <br> <br>
+								<p class="slide-desc"></p>
+								<a href="services.html" class="button">Read more</a>
+							</div>
+						</li>
+						
+					</ul>
+				</div> <!-- .hero-slider -->
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">Why choose us ?</h2>
+						<p class="section-desc">Because of our milestones and achievements</p>
+
+						<div class="row">
+							
+							<div class="counter">
+								<img src="images/icon-car.png" class="counter-icon">
+								<h3 class="counter-num">1500</h3>
+								<small class="counter-label">car repaired</small>
+							</div>
+							
+							
+							<div class="counter">
+								<img src="images/icon-wrench.png" class="counter-icon">
+								<h3 class="counter-num">5000</h3>
+								<small class="counter-label">diagnoses</small>
+							</div>
+							
+							
+							<div class="counter">
+								<img src="images/icon-gears.png" class="counter-icon">
+								<h3 class="counter-num">6000</h3>
+								<small class="counter-label">gears changed</small>
+							</div>
+							
+							
+							<div class="counter last">
+								<img src="images/icon-oil.png" class="counter-icon">
+								<h3 class="counter-num">1200</h3>
+								<small class="counter-label">oil litres used</small>
+							</div>
+							
+						</div>
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block dark-bg" data-bg-color="#1b1b1b">
+					<div class="container">
+						<h2 class="section-title">Welcome to our website</h2>
+						<div class="row">
+							<div class="col-md-3 col-sm-6">
+								<div class="team">
+									<figure class="team-image"><img src="dummy/personsm-1.jpg" alt="person-1"></figure>
+									<h3 class="team-name">Syafiq Ibnu Ramadhan</h3>
+									<small class="team-desc">System Administrstor</small>
+									<div class="team-social">
+										<a href=""><i class="fa fa-facebook"></i></a>
+										<a href=""><i class="fa fa-google-plus"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="team">
+									<figure class="team-image"><img src="dummy/personsm-2.jpg" alt="person-2"></figure>
+									<h3 class="team-name">MD Yusuf Bin Forkan</h3>
+									<small class="team-desc">UI/UX Designer</small>
+									<div class="team-social">
+										<a href=""><i class="fa fa-facebook"></i></a>
+										<a href=""><i class="fa fa-google-plus"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="team">
+									<figure class="team-image"><img src="dummy/personsm-3.jpg" alt="person-3"></figure>
+									<h3 class="team-name">Ruhul Quddus Tamim</h3>
+									<small class="team-desc">Backened Developer</small>
+									<div class="team-social">
+										<a href=""><i class="fa fa-facebook"></i></a>
+										<a href=""><i class="fa fa-google-plus"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="team">
+									<figure class="team-image"><img src="dummy/personsm-4.jpg" alt="person-4"></figure>
+									<h3 class="team-name">Shafi Ahmed</h3>
+									<small class="team-desc">Lead Engineer</small>
+									<div class="team-social">
+										<a href=""><i class="fa fa-facebook"></i></a>
+										<a href=""><i class="fa fa-google-plus"></i></a>
+									</div>
+								</div>
+							</div>
+							
+						</div> <!-- .row -->
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">Why choose us?</h2>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="feature">
+									<div class="feature-icon">
+										<img src="images/icon-wheel-white.png">
+									</div>
+									<h3 class="feature-title">Power Steering Repair</h3>
+									<p>The power steering system is responsible for converting a gentle force into a strong force, an hydraulic system – highly pressurized and requires the fluid to be filled up and in good condition in order to function at optimum levels</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="feature">
+									<div class="feature-icon">
+										<img src="images/icon-wrench-white.png">
+									</div>
+									<h3 class="feature-title">Transmission</h3>
+									<p>Transmission is the most essential system for your car to function properly. This happens automatically without the driver changing the gears manually. This process is very efficient as the car moves forward. Transmissions are very complex and are constantly functioning in order for your car to properly operate. They can wear out over time because they are used so much.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="feature">
+									<div class="feature-icon">
+										<img src="images/icon-key-white.png">
+									</div>
+									<h3 class="feature-title">Keys</h3>
+									<p>Our expertise can repair or create a spare key or remote for your car, garage or house at an affordable price. We generally will give you the best deal on a new key, about half as much as it would cost to get.</p>
+								</div>
+							</div>
+						</div> <!-- .row -->
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block dark-bg" data-bg-color="#f63f3f">
+					<div class="container">
+						<h2 class="section-title">Blog news</h2>
+						<ul class="news">
+							<li>
+								<div class="entry-date"><span class="date">3</span><span class="month">July</span></div>
+								<div class="entry-summary">Had a gearbox oil and filter change and waited while the work was being done very professionally done very helpful staff and a very nice and clean waiting area will most definitely use this garage again 10 out of 10 THANK YOU</div>
+							</li>
+							<li>
+								<div class="entry-date"><span class="date">30</span><span class="month">June</span></div>
+								<div class="entry-summary">Recommended by a friend and I am so happy that I have found this garage.I was having lots of problems with my car which was booked in, diagnosed and fixed efficiently and professionally and is back on the road running perfectly.Will not be going anywhere else from now on. Highly recommend these friendly and approachable guys.</div>
+							</li>
+							<li>
+								<div class="entry-date"><span class="date">28</span><span class="month">June</span></div>
+								<div class="entry-summary">Great professional service as always. My Mercedes looked after exceptionally well as always. Quality work at very good price.</div>
+							</li>
+						</ul>
+						<div class="text-center">
+							<a href="#" class="button invert">Go up</a>
+						</div>
+					</div>
+				</div>
+
+			</main> <!-- .main-content -->
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="subscribe-form">
+						<form action="#">
+							<input type="text" placeholder="Enter your email to subscribe...">
+							<button type="submit"><img src="images/icon-envelope-white.png" alt=""></button>
+						</form>
+					</div>
+					<div class="social-links">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+					</div>
+					<div class="copy">
+						<p>Copyright 2021 UTM. Designed by Group 1. All rights reserved.</p>
+					</div>
+				</div>
+			</footer> <!-- .site-footer -->
+
+		</div> <!-- #site-content -->
+
+		
+
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+	</body>
+
+</html>
